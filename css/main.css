@@ -12,11 +12,20 @@ a{color:inherit;text-decoration:none}button,input,select{font:inherit;color:inhe
 .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
 .sec{padding:clamp(36px,6vw,72px) 0}
 .head{margin-bottom:26px}.head h2{margin-top:6px}
-#loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:opacity .8s,visibility .8s}
-#loader.done{opacity:0;visibility:hidden}
-#loader .mono{font-size:68px;animation:up 1.1s var(--ease) both}
-#loader i{height:1px;width:0;background:var(--gold);animation:ln 1.2s .3s var(--ease) forwards}
-@keyframes ln{to{width:140px}}
+#loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:transform .9s var(--ease),visibility .9s}
+#loader.done{transform:translateY(-100%);visibility:hidden}
+.lg{position:relative;width:120px;height:120px;display:grid;place-items:center}
+.ring{position:absolute;inset:0;fill:none;stroke:var(--gold);stroke-width:.8;stroke-dasharray:290;stroke-dashoffset:290;transform:rotate(-90deg);animation:draw 1.5s .1s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+#loader .mono{font-size:60px;animation:up 1s .4s var(--ease) both}
+#loader .caps{opacity:0;letter-spacing:.5em;animation:track 1.3s .6s var(--ease) forwards}
+@keyframes track{to{opacity:1;letter-spacing:.26em}}
+#loader i{height:1px;width:0;background:var(--gold);animation:ln 1.4s .5s var(--ease) forwards}
+@keyframes ln{to{width:160px}}
+#prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--gold);z-index:90;opacity:0}
+#prog.run{animation:prog .8s var(--ease)}
+@keyframes prog{0%{width:0;opacity:1}80%{width:100%;opacity:1}100%{width:100%;opacity:0}}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .9s var(--ease),transform .9s var(--ease)}.rv.show{opacity:1;transform:none}
 @keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}

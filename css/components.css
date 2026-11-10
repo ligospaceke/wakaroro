@@ -39,3 +39,28 @@ nav a:hover,nav a.on{border-color:var(--gold)}
 footer{border-top:1px solid var(--gold);margin-top:40px;padding:44px 0;font-size:13px}
 .fg{display:grid;grid-template-columns:2fr 1fr 1fr;gap:28px}@media(max-width:700px){.fg{grid-template-columns:1fr}}
 .fg a{display:block;padding:3px 0}
+
+/* centred header, mobile sidebar, motion */
+.bar{position:relative;flex-direction:column;justify-content:center;gap:0;padding-top:14px;padding-bottom:4px}
+.bar .logo{font-size:clamp(17px,2.4vw,24px)}
+.dnav{margin:0;justify-content:center;gap:38px}
+.tools{position:absolute;right:clamp(18px,4vw,48px);top:8px}
+.burger{display:none;position:absolute;left:clamp(10px,3vw,40px);top:8px;background:none;border:0;min-width:44px;min-height:44px;cursor:pointer;flex-direction:column;justify-content:center;gap:5px;padding:0 10px}
+.burger span{display:block;height:1px;background:var(--ink);transition:width .4s var(--ease)}.burger span:nth-child(2){width:60%}.burger:hover span:nth-child(2){width:100%}
+.tools b.bump{animation:bump .6s var(--ease)}
+@keyframes bump{40%{transform:scale(1.4);background:var(--gold);color:#222222}}
+@media(max-width:860px){.dnav{display:none}.burger{display:flex}.bar{min-height:60px;padding:0;justify-content:center}.tools,.burger{top:50%;transform:translateY(-50%)}.bar .logo{font-size:15px;letter-spacing:.24em}}
+#side{position:fixed;top:0;left:0;bottom:0;z-index:50;width:min(320px,86%);background:var(--bg);border-right:1px solid var(--gold);padding:calc(22px + env(safe-area-inset-top,0px)) 28px calc(24px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;transform:translateX(-105%);transition:transform .5s var(--ease),background .5s}
+.menu-open #side{transform:none}.menu-open #ov{opacity:1;visibility:visible}
+.sn{display:flex;flex-direction:column;margin-top:26px}
+#side a.m{font:400 24px 'Cormorant Garamond',Georgia,serif;letter-spacing:.1em;padding:12px 0;border-bottom:1px solid var(--line);opacity:0;transform:translateX(-16px)}
+.menu-open #side a.m{animation:slide .55s var(--ease) both;animation-delay:calc(.15s + var(--i)*60ms)}
+#side a.m.on{color:var(--goldink)}
+@keyframes slide{to{opacity:1;transform:none}}
+.sf{margin-top:auto;display:grid;gap:16px}
+.it{animation:fade .4s var(--ease) both}
+.ph:not(:has(img))::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.2) 50%,transparent 70%);transform:translateX(-100%);animation:sh 3.4s ease-in-out infinite}
+@keyframes sh{60%,100%{transform:translateX(100%)}}
+.btn{position:relative;overflow:hidden}.btn:active{transform:scale(.98)}
+.link{transition:letter-spacing .4s var(--ease)}.link:hover{letter-spacing:.3em}
+.fg{text-align:center;justify-items:center}

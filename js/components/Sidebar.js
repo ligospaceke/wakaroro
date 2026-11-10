@@ -1,0 +1,3 @@
+import {CATS} from '../data/products.js';
+import {WA_NUMBER} from '../utils/whatsapp.js';
+export const Sidebar=route=>`<div class="dh"><div class="logo" style="font-size:16px">WAKARORO</div><button class="link" data-act="close">Close</button></div><div class="sn">${[...CATS.map(c=>[c.toLowerCase(),c]),['new','New arrivals'],['offers','Special offers'],['about','About'],['contact','Contact']].map(([r,l],i)=>`<a class="m ${route===r?'on':''}" style="--i:${i}" href="#${r}" data-act="close">${l}</a>`).join('')}</div><div class="sf"><button class="link" data-act="theme" style="justify-self:start">Switch light / dark</button><a class="btn wa" href="https://wa.me/${WA_NUMBER}" style="text-align:center">Chat on WhatsApp</a></div>`;

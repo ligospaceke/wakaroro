@@ -17,3 +17,9 @@
 .det .ph{aspect-ratio:4/5}.thumbs{display:flex;gap:8px;margin-top:8px}.thumbs button{padding:0;border:1px solid var(--line);background:none;width:64px;cursor:pointer}.thumbs .ph{aspect-ratio:3/4}
 .lab{font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin-top:16px}.acts{margin-top:18px}
 .narrow{max-width:780px}
+
+.head{text-align:center}.head h2{margin-top:6px}
+.hero .t{align-items:center;text-align:center}
+.hero .ph{animation:fade 1.2s .2s both}
+.chips,.tb{justify-content:center}
+@media(max-width:760px){.hero .t{padding:36px 20px}}
